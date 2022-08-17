@@ -18,12 +18,12 @@ const numbers = [];
 let total = 0;
 
 while (true) {
-    input = prompt('Enter number')
+  input = prompt('Enter number')
+  numbers.push(input)
 
-    if (input === null) {
-        alert(`total number ${total}`)
-        break
-    }
-    total += Number(input)
+  if (input === null) {
+    break
+  }
+  total += Number(input)
 }
 console.log(alert(`Загальна сума чисел = ${total}`))
