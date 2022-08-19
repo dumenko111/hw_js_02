@@ -36,7 +36,6 @@ let input = prompt('Enter number');
 const numbers = [];
 let total = 0;
 
-
 while (input) {
         numbers.push(Number(input))
         input = prompt('Enter number');
@@ -47,5 +46,3 @@ for (let number of numbers) {
 console.log(numbers)
 numbers.length > 0 ? 
 alert(`Загальна сума чисел = ${ total }`) : alert('Please enter number  :)')
-
-
