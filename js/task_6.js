@@ -13,36 +13,35 @@
 // при этом результат prompt записывать в массив чисел не нужно,
 // после чего снова пользователю предлагается ввести число в prompt.
 
-// let input;
-// const numbers = [];
-// let total = 0;
-
-// while (true) {
-//     input = prompt('Enter number')
-//     numbers.push(Number(input))
-
-//     if (input === null) {
-//         for (const number of numbers) {
-//             total += number
-//         }
-//         break
-//     }
-// } console.log(`Загальна сума чисел - ${total}`)
-
-
-
-
-let input = prompt('Enter number');
+let input;
 const numbers = [];
 let total = 0;
 
-while (input) {
-        numbers.push(Number(input))
-        input = prompt('Enter number');
+while (true) {
+    input = prompt('Enter number')
+    numbers.push(Number(input))
+
+    if (input === null) {
+        for (const number of numbers) {
+            total += number
+        }
+        break
     }
-for (let number of numbers) {
-    total = total + number
-}
-console.log(numbers)
-numbers.length > 0 ? 
-alert(`Загальна сума чисел = ${ total }`) : alert('Please enter number  :)')
+} console.log(`Загальна сума чисел - ${total}`)
+
+
+
+
+// let input = prompt('Enter number');
+// const numbers = [];
+// let total = 0;
+
+// while (input) {
+//         numbers.push(Number(input))
+//         input = prompt('Enter number');
+//     }
+// for (let number of numbers) {
+//     total = total + number
+// }
+// numbers.length > 0 ? 
+// alert(`Загальна сума чисел = ${ total }`) : alert('Please enter number  :)')
