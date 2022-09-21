@@ -31,40 +31,37 @@
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
 
-
-const isLoginValid = (login) => {
-    console.log(login.length >= 4 && login.length <= 16)
-};
+const isLoginValid = (login) => login.length >= 4 && login.length <= 16
 // isLoginValid('Mango') //Виклик функції
 
 //////////////////////////////////////////////////////
 
 const isLoginUnique = (allLogins, login) => !allLogins.includes(login)
-
 // console.log(isLoginUnique(logins, 'robotGoogles'))  //Виклик функції
 
 /////////////////////////////////////////////////////////
 
-const addLogin = function (allLogins, login) {
-  
-  if (login.length >= 4 && login.length <= 16) {
-  } else {
-    return console.log('Ошибка! Логин должен быть от 4 до 16 символов')
-  }
-  if (!allLogins.includes(login)) {
-  } else {
-    return console.log('Такой логин уже используется!')
-  }
-  return console.log('Логин успешно добавлен!', allLogins.push(login))
+const addLogin = function (allLogins, login, callbackValid, callbackUnique) {
+
+    if (!callbackValid(login)) {
+      console.log('Ошибка! Логин должен быть от 4 до 16 символов')
+      
+    } else if (callbackUnique(login)) {
+      console.log('Такой логин уже используется!')
+
+    } else {
+      allLogins.push(login)
+      console.log('Логин успешно добавлен!')
+    }
 };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(addLogin(logins, 'Ajax')); // 'Логин успешно добавлен!'
-console.log(addLogin(logins, 'robotGoogles')); // 'Такой логин уже используется!'
-console.log(addLogin(logins, 'Zod')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
-console.log(addLogin(logins, 'jqueryisextremelyfast')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+// Вызовы функции для проверки работоспособности твоей реализации.
+
+console.log(addLogin(logins, 'Ajax', isLoginValid, isLoginUnique)); // 'Логин успешно добавлен!'
+console.log(addLogin(logins, 'robotGoogles', isLoginValid, isLoginUnique)); // 'Такой логин уже используется!'
+console.log(addLogin(logins, 'Zod', isLoginValid, isLoginUnique)); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(addLogin(logins, 'jqueryisextremelyfast', isLoginValid, isLoginUnique)); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+
+console.table(logins)  
 
 
-console.table(logins)  //Виклик функції
