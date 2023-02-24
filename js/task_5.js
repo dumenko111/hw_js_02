@@ -6,17 +6,10 @@
 // слов нет функция возвращает false.Слова в строке 
 // могут быть в произвольном регистре.
 const checkForSpam = function (message) {
-  let result
-  message = message.toLowerCase()
-    if (message.includes('spam')) {
-          result = message.includes('spam')
-      } else if (message.includes('sale')) {
-          result = message.includes('sale')
-      } else {
-          result = !message
-      }
-    return result;
-  };
+    message = message.toLowerCase()
+    return message.includes('spam') || message.includes('sale')
+    
+};
 /** Вызовы функции для проверки работоспособности твоей реализации.*/
 console.log(checkForSpam('Latest technology news')); // false
 console.log(checkForSpam('JavaScript weekly newsletter')); // false
